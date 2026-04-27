@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check if user is already logged in
     let currentUserStatus = localStorage.getItem("air_wear_user_logged_in");
     if(currentUserStatus === "true") {
-        window.location.href = "index.html"; // redirect to dashboard
+        window.location.href = "dashboard.html"; // redirect to dashboard
     }
 
     googleButton.addEventListener("click", function() {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 localStorage.setItem("air_wear_newsletter_subscribed", "false");
             }
             
-            window.location.href = "index.html";
+            window.location.href = "dashboard.html";
         }, 1500);
     });
 
@@ -37,6 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem("air_wear_newsletter_subscribed", "false");
         }
         
-        window.location.href = "index.html";
+        window.location.href = "dashboard.html";
     });
 });

@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages Securely
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Inject API Keys Securely into env.js
+        run: |
+          # This creates the env.js file dynamically during deployment
+          # It safely pulls your keys from GitHub Secrets so they never touch your public code!
+          echo "const ENV = {" > js/env.js
+          echo "    OPENWEATHER_KEY: '${{ secrets.OPENWEATHER_KEY }}'," >> js/env.js
+          echo "    WAQI_KEY: '${{ secrets.WAQI_KEY }}'" >> js/env.js
+          echo "};" >> js/env.js
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository (which now includes the dynamically generated env.js)
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

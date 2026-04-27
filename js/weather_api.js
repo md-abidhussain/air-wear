@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Auth Check
     let loginStatus = localStorage.getItem("air_wear_user_logged_in");
     if(loginStatus !== "true") {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 
     // Set User Profile UI
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle Logout
     document.getElementById("sidebar_logout_button").addEventListener("click", function() {
         localStorage.clear();
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     });
 
     // Refresh Data Button
