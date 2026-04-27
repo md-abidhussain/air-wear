@@ -3,6 +3,9 @@
 Air Wear is a **real-time decision-support dashboard** that transforms environmental data into actionable lifestyle insights.
 Instead of displaying raw values like temperature or AQI, it interprets them to guide users on **health, fashion, and skincare decisions**.
 
+### 🔗 Live Demo
+**[Play with the live dashboard here!](https://md-abidhussain.github.io/air-wear/)**
+
 ---
 
 ## 🚀 Problem Statement
