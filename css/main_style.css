@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    color: #2c3e50;
+}
+
+/* Login Page Interactive Styles */
+
+.login_background {
+    background-image: url('../assets/images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Overlay */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login_card_design {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* Animation */
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+@keyframes slideUpFade {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.auth_btn {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.auth_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app_logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   Dashboard Styles 
+   ========================================= */
+#dashboard_wrapper {
+    min-height: 100vh;
+}
+
+#sidebar_section {
+    width: 280px;
+    background: #1e293b;
+    color: #f8fafc;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    transition: all 0.3s;
+}
+
+.sidebar_header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar_header img {
+    border-radius: 8px;
+}
+
+.menu_item {
+    color: #cbd5e1;
+    transition: all 0.2s;
+    border-radius: 8px;
+    margin: 5px 15px;
+}
+
+.menu_item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.active_menu {
+    background-color: #3b82f6 !important;
+    color: white !important;
+    font-weight: 500;
+}
+
+#main_page_content {
+    background-color: #f8fafc;
+}
+
+/* =========================================
+   Weather Cards Design 
+   ========================================= */
+.weather_card_style {
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 5px solid transparent;
+}
+
+.weather_card_style:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.card_icon_box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.temp-indicator {
+    border-left-color: #ef4444;
+}
+
+.temp-indicator .card_icon_box {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.aqi-indicator {
+    border-left-color: #10b981;
+}
+
+.aqi-indicator .card_icon_box {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.humidity-indicator {
+    border-left-color: #3b82f6;
+}
+
+.humidity-indicator .card_icon_box {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.uv-indicator {
+    border-left-color: #f59e0b;
+}
+
+.uv-indicator .card_icon_box {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+/* =========================================
+   Recommendations Sections 
+   ========================================= */
+.section_title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section_title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 2px;
+}
+
+.advice_card {
+    border-radius: 16px;
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.advice_card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* AI Feature Box */
+.ai_insights_box {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
+}
+
+.ai_insights_box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+    animation: rotateSlow 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ai_loader {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
